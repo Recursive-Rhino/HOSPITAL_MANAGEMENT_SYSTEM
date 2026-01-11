@@ -47,7 +47,7 @@ public class Patients {
             System.out.println("| Patient Id | Name               | Age      | Gender     |");
             System.out.println("+------------+--------------------+----------+------------+");
             while(resultSet.next()){
-                int id = resultSet.getInt("id");
+                int id = resultSet.getInt("pid");
                 String name = resultSet.getString("name");
                 int age = resultSet.getInt("age");
                 String gender = resultSet.getString("gender");
@@ -60,11 +60,17 @@ public class Patients {
         }
     }
     public boolean getPatientData(int id){
-        String query="SELECT * FROM patients WHERE id=?";
+        String query="SELECT * FROM patients WHERE pid=?";
         try {
             PreparedStatement ps= connection.prepareStatement(query);
-
+            ps.setInt(1,id);
+            ResultSet rs=ps.executeQuery();
+            if(rs.next()) {
+                return true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
+        return  false;
     }
 }
