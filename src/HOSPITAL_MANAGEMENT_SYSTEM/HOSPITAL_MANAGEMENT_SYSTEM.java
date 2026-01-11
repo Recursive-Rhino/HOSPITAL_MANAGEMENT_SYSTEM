@@ -6,9 +6,9 @@ import java.util.Scanner;
 import static java.lang.System.exit;
 
 public class HOSPITAL_MANAGEMENT_SYSTEM {
-    private static  String url="jdbc:mysql://localhost:3306/hospital";
-    private static  String username="root";
-    private static  String password="DBMS@#2965&Smruti";
+    private static  final String url="jdbc:mysql://localhost:3306/hospital";
+    private static  final String username="root";
+    private static  final String password="DBMS@#2965&Smruti";
 
     static void main() {
         try{
